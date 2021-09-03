@@ -53,7 +53,7 @@ altere conforme sua preferência.
 
 
 6- Acessar seu navegador e colocar o endereço do Oauth2-proxy: <pre>
-https://DOMINIO DO SERVIDOR OU IP:32045
+https://DOMINIO_DO_SERVIDOR_OU_IP:32045
 
 -Inserir seus dados do AD, no caso seu email, exemplo: usuario@ad.empresa.br e senha.
 </pre>
