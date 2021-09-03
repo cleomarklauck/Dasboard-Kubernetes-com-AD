@@ -25,7 +25,7 @@ spec:
         - --email-domain="*"
         - --ssl-insecure-skip-verify
         - --upstream=https://kubernetes-dashboard.kubernetes-dashboard.svc.cluster.local
-        - --redirect-url=https://DOMINIO DO SERVIDOR OU IP:32045
+        - --redirect-url=https://DOMINIO_DO_SERVIDOR_OU_IP:32045
         - --https-address=0.0.0.0:8080
         - --reverse-proxy=true
         - --pass-basic-auth=false
