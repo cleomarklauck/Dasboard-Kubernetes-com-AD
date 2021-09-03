@@ -1,7 +1,7 @@
 # Dasboard-Kubernetes-com-AD
 Kubernetes com Active Directory
 
-Olá pessoal, esse tutorial talvez seja util para alguém que esteja configurando autenticação do dashboard-kubernetes com AD/LDAP.
+Olá pessoal, esse tutorial talvez seja util para alguém que esteja configurando autenticação do dashboard-kubernetes com AD/LDAP, deixando claro que existem outras maneiras de ser feito a mesma coisa.
 
 Servidor - Ubuntu 20.04.2 LTS
 Kubernetes - kube-apiserver:v1.22.0
@@ -9,7 +9,7 @@ Kubernetes - kube-apiserver:v1.22.0
 Partindo do pressuposto que já se tem o kubernetes instalado e também o Dashboard-kubernetes com serviço e porta funcionando vamos instalar o servidor de autenticação para o dashboard-kubernetes autenticar com usuários do AD.
 
 
-1- Gerar as chaves que serão utilizadas pelo servidor de autenticação DEX, arquivo gencert.sh o mesmo esta em shell script mas pode ser 
+1- Gerar as chaves que serão utilizadas pelo servidor de autenticação DEX, arquivo gencert.sh o mesmo esta em shell script mas deve ser 
 customizado conforme sua preferência.
 <pre>
 OBS: verifique o IP do seu servidor ou dominio para colocar no script
@@ -38,7 +38,7 @@ spec:
    containers:
    - command:
      - kube-apiserver
-     - --oidc-issuer-url=https://DOMINIO DO SERVIDOR OU IP:32001
+     - --oidc-issuer-url=https://DOMINIO_DO_SERVIDOR_OU_IP:32001
      - --oidc-client-id=kubernetes
      - --oidc-username-claim=email
      - --oidc-groups-claim=groups
@@ -52,8 +52,14 @@ altere conforme sua preferência.
 </pre>
 
 
-6- Acessar seu navegador e colocar o endereço do Oauth2-proxy: <pre>
-https://DOMINIO_DO_SERVIDOR_OU_IP:32045
+6- Implementar as regras de permissões dos usuários do grupo do AD, no nosso caso permissões a nível de cluster RBAC.
+<pre>
+OBS: edite o arquivo e coloque o nome do grupo do AD no arquivo RBAC.yaml que o usuário esta inserido.
+kubectl apply -f RBAC.yaml
+</pre>
 
+7- Acessar seu navegador e colocar o endereço do Oauth2-proxy: 
+<pre>
+https://DOMINIO_DO_SERVIDOR_OU_IP:32045
 -Inserir seus dados do AD, no caso seu email, exemplo: usuario@ad.empresa.br e senha.
 </pre>
