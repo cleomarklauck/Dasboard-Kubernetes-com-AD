@@ -17,7 +17,7 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1 = dex.example.com
-IP.1 = IP ou dominio
+IP.1 = IP do servidor
 EOF
 
 openssl genrsa -out ssl/ca-key.pem 2048
