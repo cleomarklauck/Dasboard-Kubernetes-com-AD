@@ -17,8 +17,8 @@ OBS: verifique o IP do seu servidor ou dominio para colocar no script
 </pre>
 
 
-2- Copiar as chaves criadas para pasta ¨/etc/ssl/certs/
-<pre>¨
+2- Copiar as chaves criadas para pasta "/etc/ssl/certs/"
+<pre>
 cp /etc/kubernetes/yaml/ssl/cert.pem /etc/ssl/certs/
 cp /etc/kubernetes/yaml/ssl/ca.pem /etc/ssl/certs/
 </pre>
