@@ -22,7 +22,7 @@ OBS: verifique o IP do seu servidor ou dominio para colocar no arquivo DEX.yaml 
 kubectl apply -f DEX.yaml
 
 4- Adicionar na API do Kubernetes os dados do DEX conforme exemplo abaixo:
-
+<pre>
 vim /etc/kubernetes/manifests/kube-apiserver.yaml
 
 spec:
@@ -33,7 +33,7 @@ spec:
      - --oidc-client-id=kubernetes
      - --oidc-username-claim=email
      - --oidc-groups-claim=groups
-
+</pre>
 5- Construir o container/Pod do Oauth2-proxy, arquivo OAUTH2.yaml altere as informações conforme dados do seu servidor.
 OBS: Nessa configuração temos a autenticação com cookie que pode ser alterado o tempo de atualização e também o tempo de vida do mesmo, altere conforme sua preferência.
 
