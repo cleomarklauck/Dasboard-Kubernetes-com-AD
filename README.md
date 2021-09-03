@@ -3,8 +3,8 @@ Kubernetes com Active Directory
 
 Olá pessoal, esse tutorial talvez seja util para alguém que esteja configurando autenticação do dashboard-kubernetes com AD/LDAP, deixando claro que existem outras maneiras de ser feito a mesma coisa.
 
-Servidor - Ubuntu 20.04.2 LTS
-Kubernetes - kube-apiserver:v1.22.0
+-Servidor - Ubuntu 20.04.2 LTS
+-kube-apiserver v1.22.0
 
 Partindo do pressuposto que já se tem o kubernetes instalado e também o Dashboard-kubernetes com serviço e porta funcionando vamos instalar o servidor de autenticação para o dashboard-kubernetes autenticar com usuários do AD.
 
@@ -48,7 +48,7 @@ spec:
 5- Construir o container/Pod do Oauth2-proxy, arquivo OAUTH2.yaml altere as informações conforme dados do seu servidor.
 <pre>
 OBS: Nessa configuração temos a autenticação com cookie que pode ser alterado o tempo de atualização e também o tempo de vida do mesmo, 
-altere conforme sua preferência.
+altere conforme sua preferência. Também é necessário colocar o endereço do serviço do dashboard-kubernetes.
 </pre>
 
 
