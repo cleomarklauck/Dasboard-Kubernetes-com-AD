@@ -71,7 +71,7 @@ metadata:
   namespace: dex
 data:
   config.yaml: |
-    issuer: https://DOMINIO DO SERVIDOR OU IP:32001
+    issuer: https://DOMINIO_DO_SERVIDOR_OU_IP:32001
     storage:
       type: kubernetes
       config:
@@ -83,7 +83,7 @@ data:
     staticClients:
     - id: kubernetes
       redirectURIs:
-      - 'https://DOMINIO SERVIDOR OU IP:32045/oauth2/callback'
+      - 'https://DOMINIO_DO_SERVIDOR_OU_IP:32045/oauth2/callback'
       name: 'kubernetes'
       secret: 'dex'
     connectors:
