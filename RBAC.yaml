@@ -1,0 +1,76 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: managerdexCR
+rules:
+  - apiGroups:
+      - ""
+      - apps
+      - autoscaling
+      - batch
+      - extensions
+      - policy
+      - rbac.authorization.k8s.io
+      - networking.k8s.io
+      - storage.k8s.io
+    resources:
+      - clusterrolebindings
+      - componentstatuses
+      - configmaps
+      - cronjobs
+      - daemonsets
+      - deployments
+      - events
+      - endpoints
+      - horizontalpodautoscalers
+      - ingress
+      - ingresses
+      - jobs
+      - limitranges
+      - namespaces
+      - networkpolicies
+      - nodes
+      - pods
+      - pods/log
+      - pods/exec
+      - persistentvolumes
+      - persistentvolumeclaims
+      - resourcequotas
+      - replicasets
+      - replicationcontrollers
+      - rolebindings
+      - serviceaccounts
+      - services
+      - secrets
+      - statefulsets
+      - storageclasses
+      - clusterroles
+      - roles
+    verbs:
+      - get
+      - watch
+      - list
+  - nonResourceURLs: ["*"]
+    verbs:
+      - get
+      - watch
+      - list
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: managerdexCRB
+  namespace: dex
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: managerdexCR
+subjects:
+  - kind: Group
+    name: COLOQUE AQUI O NOME DO GRUPO DO ACTIVE DIRECTORY QUE O USUÁRIO ESTA
+    apiGroup: rbac.authorization.k8s.io
