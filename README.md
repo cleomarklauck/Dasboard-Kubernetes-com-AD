@@ -24,7 +24,7 @@ cp /etc/kubernetes/yaml/ssl/ca.pem /etc/ssl/certs/
 </pre>
 
 
-3- Construir o container/Pod do DEX arquivo DEX.yaml, altere as informações conforme seu servidor.
+3- Construir o Pod do DEX arquivo DEX.yaml, altere as informações conforme seu servidor.
 <pre>
 OBS: verifique o IP do seu servidor ou dominio para colocar no arquivo DEX.yaml assim como os dados de acesso do Active Directory
 kubectl apply -f DEX.yaml
@@ -45,7 +45,7 @@ spec:
 </pre>
 
 
-5- Construir o container/Pod do Oauth2-proxy, arquivo OAUTH2.yaml altere as informações conforme dados do seu servidor.
+5- Construir o Pod do Oauth2-proxy, arquivo OAUTH2.yaml altere as informações conforme dados do seu servidor.
 <pre>
 OBS: Nessa configuração temos a autenticação com cookie que pode ser alterado o tempo de atualização e também o tempo de vida do mesmo, 
 altere conforme sua preferência. Também é necessário colocar o endereço do serviço do dashboard-kubernetes.
